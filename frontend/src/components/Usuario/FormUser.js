@@ -52,11 +52,6 @@ const FormUser = ({ onEdit }) => {
                 <Label>Data de Nascimento</Label>
                 <Input name="datanascimento" type="date"/>
             </InputArea>
-            <InputArea>
-                <Label>Ano</Label>
-                <Input name="dataLancamento" type="date"/>
-            </InputArea>
-
             <Button type="submit">Salvar</Button>
         </FormContainer>
     );

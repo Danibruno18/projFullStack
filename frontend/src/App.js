@@ -46,6 +46,10 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    getUser();
+  }, [setUser]);
+
   const getAutor = async () => {
     try{
       const res = await axios.get("http://localhost:8800");
@@ -79,7 +83,7 @@ function App() {
     <Container>
       <Title>Usuários</Title>
       <FormUser/>
-      <GridUser/>
+      <GridUser user={user}/>
     <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
     <GlobalStyle/> 
     </Container>
