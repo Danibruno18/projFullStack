@@ -41,18 +41,18 @@ const Form = ({onEdit}) => {
     const ref = useRef();
     
     return (
-        <FormContainer>
+        <FormContainer ref={ref}>
             <InputArea>
-                <Label>Nome do Livro:</Label>
+                <Label>Título:</Label>
                 <input name="nome" />
-            </InputArea>
-            <InputArea>
-                <Label>Data de Lançamento</Label>
-                <input name="dataLancamento" type="date"/>
             </InputArea>
             <InputArea>
                 <Label>Autor</Label>
                 <input name="autor" />
+            </InputArea>
+            <InputArea>
+                <Label>Ano</Label>
+                <input name="dataLancamento" type="date"/>
             </InputArea>
 
             <Button type="submit">Salvar</Button>
