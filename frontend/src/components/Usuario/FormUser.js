@@ -25,7 +25,9 @@ const Input = styled.input`
     height: 40px;
 `;
 
-const Label = styled.label``;
+const Label = styled.label`
+    text-align: center;
+`;
 
 const Button = styled.button`
     padding: 10px;
@@ -37,14 +39,14 @@ const Button = styled.button`
     height: 42px;
 `;
 
-const Form = ({ onEdit }) => {
+const FormUser = ({ onEdit }) => {
     const ref = useRef();
     
     return (
         <FormContainer ref={ref}>
             <InputArea>
-                <Label>Título:</Label>
-                <Input name="titulo" />
+                <Label>Nome</Label>
+                <Input name="nomeuser" />
             </InputArea>
             <InputArea>
                 <Label>Autor</Label>
@@ -60,4 +62,4 @@ const Form = ({ onEdit }) => {
     );
 };
 
-export default Form;
+export default FormUser;

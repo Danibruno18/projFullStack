@@ -42,22 +42,22 @@ export const Td = styled.td`
     };
 `;
 
-const Grid = ({ livros }) =>{
+const GridAutor = ({ autor }) =>{
     return (
         <Table>
             <Thead>
                 <Tr>
-                    <Th>Titulo</Th>
-                    <Th>Autor</Th>
-                    <Th>Data</Th>
+                    <Th>ID</Th>
+                    <Th>Nome</Th>
+                    <Th>Nacionalidade</Th>
                 </Tr>
             </Thead>
             <Tbody>
-                {livros.map((item, i) => (
+                {autor.map((item, i) => (
                     <Tr key={i}>
-                        <Td width="30%">{item.titulo}</Td>
-                        <Td width="30%">{item.autor}</Td>
-                        <Td width="30%">{item.dataLancamento}</Td>
+                        <Td width="10%">{item.id}</Td>
+                        <Td width="30%">{item.nome}</Td>
+                        <Td width="30%">{item.nacionalidade}</Td>
                         <Td alignCenter width="5%"> <FaEdit /> </Td>
                         <Td alignCenter width="5%"> {/*<FaTrash onClick={() => handleDelete(item.id)} />*/} </Td>
                     </Tr>
@@ -68,4 +68,4 @@ const Grid = ({ livros }) =>{
 
 };
 
-export default Grid;
+export default GridAutor;
