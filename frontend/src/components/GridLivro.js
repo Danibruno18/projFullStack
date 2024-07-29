@@ -18,6 +18,8 @@ const Table = styled.table`
 
 export const Thead = styled.thead``;
 
+export const Tbody = styled.tbody``;
+
 export const Tr = styled.tr``;
 
 export const Th = styled.th`
@@ -27,6 +29,16 @@ export const Th = styled.th`
 
     @media (max-width: 500px) {
         ${(props) => props.onlyweb && "display:none" }
+    }
+`;
+
+export const Td = styled.td`
+    padding-top: 15px;
+    text-align: ${(props) => (props.alignCenter ? "center" : "start")};
+    width: ${(props) => {props.width ? props.width : "auto"}};
+
+    @media (max-width: 500px) {
+        ${(props) => props.onlyweb && "display:none"}
     }
 `;
 
@@ -40,6 +52,17 @@ const Grid = () =>{
                     <Th>Data</Th>
                 </Tr>
             </Thead>
+            <Tbody>
+                {users.map((item, i) => (
+                    <Tr key={i}>
+                        <Td width="30%">{item.titulo}</Td>
+                        <Td width="30%">{item.autor}</Td>
+                        <Td width="30%">{item.dataLancamento}</Td>
+                        <Td alignCenter width="5%"> <FaEdit /> </Td>
+                        <Td alignCenter width="5%"> {/*<FaTrash onClick={() => handleDelete(item.id)} />*/} </Td>
+                    </Tr>
+                ))}
+            </Tbody>
         </Table>
     );
 
