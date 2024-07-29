@@ -49,8 +49,8 @@ const FormUser = ({ onEdit }) => {
                 <Input name="nomeuser" />
             </InputArea>
             <InputArea>
-                <Label>Autor</Label>
-                <Input name="autor" />
+                <Label>Data de Nascimento</Label>
+                <Input name="datanascimento" type="date"/>
             </InputArea>
             <InputArea>
                 <Label>Ano</Label>

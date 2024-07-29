@@ -37,6 +37,15 @@ function App() {
   const[user, setUser] = useState([]);
   // const [onEdit, setOnEdit] = useState(null);
 
+  const getUser = async () => {
+    try{
+      const res = await axios.get("http://localhost:8800");
+      setUser (res.data.sort((a, b) => (a.nomeuser > b.nomeuser ? 1 : -1)));
+    } catch (error) {
+      toast.error(error);
+    }
+  }
+
   const getAutor = async () => {
     try{
       const res = await axios.get("http://localhost:8800");
@@ -50,7 +59,7 @@ function App() {
     getAutor();
   }, [setAutor]);
 
-  
+
   const getLivros = async () => {
     try{
       const res = await axios.get("http://localhost:8800");
@@ -66,6 +75,15 @@ function App() {
 
   return (
     <>
+    {/* USUARIOS */}
+    <Container>
+      <Title>Usuários</Title>
+      <FormUser/>
+      <GridUser/>
+    <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
+    <GlobalStyle/> 
+    </Container>
+
     {/* AUTORES */}
     <Container>
       <Title>Autores</Title>
