@@ -37,22 +37,22 @@ const Button = styled.button`
     height: 42px;
 `;
 
-const Form = ({onEdit}) => {
+const Form = ({ onEdit }) => {
     const ref = useRef();
     
     return (
         <FormContainer ref={ref}>
             <InputArea>
                 <Label>Título:</Label>
-                <input name="nome" />
+                <Input name="nome" />
             </InputArea>
             <InputArea>
                 <Label>Autor</Label>
-                <input name="autor" />
+                <Input name="autor" />
             </InputArea>
             <InputArea>
                 <Label>Ano</Label>
-                <input name="dataLancamento" type="date"/>
+                <Input name="dataLancamento" type="date"/>
             </InputArea>
 
             <Button type="submit">Salvar</Button>
