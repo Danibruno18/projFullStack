@@ -1,7 +1,16 @@
 {
+  "name": "meu-projeto-express",
+  "version": "1.0.0",
+  "description": "Uma API Node.js com Express",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Bruno Daniel",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.19.2",
     "mysql2": "^3.10.3",
+    "node": "^20.16.0",
     "pg": "^8.12.0"
   }
 }

@@ -44,7 +44,7 @@ const Form = ({ onEdit }) => {
         <FormContainer ref={ref}>
             <InputArea>
                 <Label>Título:</Label>
-                <Input name="nome" />
+                <Input name="titulo" />
             </InputArea>
             <InputArea>
                 <Label>Autor</Label>

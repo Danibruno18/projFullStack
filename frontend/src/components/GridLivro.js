@@ -29,20 +29,20 @@ export const Th = styled.th`
 
     @media (max-width: 500px) {
         ${(props) => props.onlyweb && "display:none" }
-    }
+    };
 `;
 
 export const Td = styled.td`
     padding-top: 15px;
     text-align: ${(props) => (props.alignCenter ? "center" : "start")};
-    width: ${(props) => {props.width ? props.width : "auto"}};
+    width: auto;
 
     @media (max-width: 500px) {
         ${(props) => props.onlyweb && "display:none"}
-    }
+    };
 `;
 
-const Grid = () =>{
+const Grid = ({ livros }) =>{
     return (
         <Table>
             <Thead>
@@ -53,7 +53,7 @@ const Grid = () =>{
                 </Tr>
             </Thead>
             <Tbody>
-                {users.map((item, i) => (
+                {livros.map((item, i) => (
                     <Tr key={i}>
                         <Td width="30%">{item.titulo}</Td>
                         <Td width="30%">{item.autor}</Td>
