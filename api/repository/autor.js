@@ -4,7 +4,7 @@ const conexao = {
     password: "123456",
     host: "localhost",
     port: 5432,
-    database: "projeto_apis1"
+    database: "postgres"
 };
 
 async function listar_autores_repository() {

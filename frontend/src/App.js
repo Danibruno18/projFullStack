@@ -13,7 +13,15 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 
-
+const Tela = styled.div`
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
 
 const Container = styled.div`
   width: 100%;
@@ -79,33 +87,35 @@ function App() {
 
   return (
     <>
-    {/* USUARIOS */}
-    <Container>
-      <Title>Usuários</Title>
-      <FormUser/>
-      <GridUser user={user}/>
-    <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
-    <GlobalStyle/> 
-    </Container>
+      <Tela>
+        {/* USUARIOS */}
+        <Container>
+          <Title>Usuários</Title>
+          <FormUser/>
+          <GridUser user={user}/>
+        <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
+        <GlobalStyle/> 
+        </Container>
 
-    {/* AUTORES */}
-    <Container>
-      <Title>Autores</Title>
-      <FormAutor/>
-      <GridAutor autor={autor}/>
-    </Container>
-    <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
-    <GlobalStyle/>
+        {/* AUTORES */}
+        <Container>
+          <Title>Autores</Title>
+          <FormAutor/>
+          <GridAutor autor={autor}/>
+        </Container>
+        <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
+        <GlobalStyle/>
 
 
-    {/* LIVROS */}
-      <Container>
-        <Title>Livros</Title>
-        <FormLivro/>
-        <GridLivro livros={livros}/>
-      </Container>
-      <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
-      <GlobalStyle/>
+        {/* LIVROS */}
+          <Container>
+            <Title>Livros</Title>
+            <FormLivro/>
+            <GridLivro livros={livros}/>
+          </Container>
+          <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
+          <GlobalStyle/>
+      </Tela>
     </>
   );
 }
