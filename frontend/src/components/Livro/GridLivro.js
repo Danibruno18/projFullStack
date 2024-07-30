@@ -61,7 +61,7 @@ const GridLivro = ({ livros }) =>{
                         <Td width="30%">{item.dataLancamento}</Td>
                         <Td width="30%">{item.disponibilidade}</Td>
                         <Td alignCenter width="5%"> <FaEdit /> </Td>
-                        <Td alignCenter width="5%"> {/*<FaTrash onClick={() => handleDelete(item.id)} />*/} </Td>
+                        <Td alignCenter width="5%"> <FaTrash onClick={() => handleDelete(item.id)} /> </Td>
                     </Tr>
                 ))}
             </Tbody>
