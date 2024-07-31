@@ -1,14 +1,14 @@
-import GridLivro  from "./components/Livro/GridLivro.js";
+import GridLivro from "./components/Livro/GridLivro.js";
 import FormLivro from "./components/Livro/FormLivro.js";
-import GridAutor  from "./components/Autor/GridAutor.js";
+import GridAutor from "./components/Autor/GridAutor.js";
 import FormAutor from "./components/Autor/FormAutor.js";
-import GridUser  from "./components/Usuario/GridUser.js";
+import GridUser from "./components/Usuario/GridUser.js";
 import FormUser from "./components/Usuario/FormUser.js";
 
 import GlobalStyle from "./styles/global";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { toast, ToastContainer} from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
@@ -37,17 +37,12 @@ const Title = styled.h2``;
 
 function App() {
   const [livros, setLivros] = useState([]);
-  // const [onEdit, setOnEdit] = useState(null);
-
   const[autor, setAutor] = useState([]);
-  // const [onEdit, setOnEdit] = useState(null);
-
   const[user, setUser] = useState([]);
-  // const [onEdit, setOnEdit] = useState(null);
-
+  
   const getUser = async () => {
     try{
-      const res = await axios.get("http://localhost:8800");
+      const res = await axios.get("http://localhost:8800/usuario");
       setUser (res.data.sort((a, b) => (a.nomeuser > b.nomeuser ? 1 : -1)));
     } catch (error) {
       toast.error(error);
@@ -56,11 +51,11 @@ function App() {
 
   useEffect(() => {
     getUser();
-  }, [setUser]);
+  }, []);
 
   const getAutor = async () => {
     try{
-      const res = await axios.get("http://localhost:8800");
+      const res = await axios.get("http://localhost:8800/autor");
       setAutor (res.data.sort((a, b) => (a.titulo > b.titulo ? 1 : -1)));
     } catch (error) {
       toast.error(error);
@@ -69,21 +64,21 @@ function App() {
 
   useEffect(() => {
     getAutor();
-  }, [setAutor]);
+  }, []);
 
 
   const getLivros = async () => {
     try{
-      const res = await axios.get("http://localhost:8800");
+      const res = await axios.get("http://localhost:8800/livros");
       setLivros (res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
     } catch (error) {
-      toast.error(error);
+      toast.error(error.message);
     }
   };
 
   useEffect(() => {
     getLivros();
-  }, [setLivros]);
+  }, []);
 
   return (
     <>
@@ -93,7 +88,7 @@ function App() {
           <Title>Usuários</Title>
           <FormUser/>
           <GridUser user={user}/>
-        <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
+        <ToastContainer autoClose={3000} position="BOTTOM_LEFT" />
         <GlobalStyle/> 
         </Container>
 
@@ -103,7 +98,7 @@ function App() {
           <FormAutor/>
           <GridAutor autor={autor}/>
         </Container>
-        <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
+        <ToastContainer autoClose={3000} position="BOTTOM_LEFT" />
         <GlobalStyle/>
 
 
@@ -113,7 +108,7 @@ function App() {
             <FormLivro/>
             <GridLivro livros={livros}/>
           </Container>
-          <ToastContainer autoClose={3000} /*position={toast.position.bottom_left}*/ />
+          <ToastContainer autoClose={3000} position="BOTTOM_LEFT" />
           <GlobalStyle/>
       </Tela>
     </>

@@ -1,17 +1,17 @@
-const { Client } = require("pg");
+const { Client } = require("mysql");
 const conexao = {
-    user: "postgres",
+    user: "root",
     password: "123456",
     host: "localhost",
     port: 5432,
-    database: "postgres"
+    database: "biblioteca"
 };
 
 async function listar_autores_repository() {
     const cliente = new Client(conexao);
     try {
         await cliente.connect();
-        const resultado = await cliente.query("SELECT * FROM autor");
+        const resultado = await cliente.query("SELECT * FROM biblioteca.autor");
         return resultado.rows;
     } catch (error) {
         console.error('Erro ao listar autores:', error.message);

@@ -1,17 +1,17 @@
-const { Client } = require("pg");
+const { Client } = require("mysql");
 const conexao = {
-    user: "postgres",
+    user: "root",
     password: "123456",
     host: "localhost",
     port: 5432,
-    database: "postgres"
+    database: "biblioteca"
 };
 
 async function listar_livros_repository() {
     const cliente = new Client(conexao);
     try {
         await cliente.connect();
-        const sql = `SELECT livro.id_livro, livro.titulo, livro.disponivel, livro.ano,
+        const sql = `SELECT biblioteca.livro.id_livro, livro.titulo, livro.disponivel, livro.ano,
                             autor.id_autor, autor.nome, autor.nacionalidade
                      FROM livro
                      JOIN autor ON livro.autor = autor.id_autor;`;

@@ -1,11 +1,12 @@
-const { Client } = require("pg");
-const conexao = {
-    user: "postgres",
+const { Client } = require("mysql2");
+
+const conexao = mysql.createConnection({
+    user: "root",
     password: "123456",
     host: "localhost",
     port: 5432,
-    database: "postgres"
-};
+    database: "biblioteca"
+});
 
 async function listar_usuarios_repository() {
     const cliente = new Client(conexao);
